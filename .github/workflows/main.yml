@@ -1,0 +1,15 @@
+name: Debug PR Event
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print PR Info
+        run: |
+          echo "merged: ${{ github.event.pull_request.merged }}"
+          echo "base: ${{ github.event.pull_request.base.ref }}"
+          echo "head: ${{ github.event.pull_request.head.ref }}"
